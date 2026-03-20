@@ -1,0 +1,34 @@
+# Units
+
+## Overview
+`units` is a Python package for working with physical quantities and unit conversion.
+It currently provides utilities for **length** and **angle** values with simple arithmetic and conversion helpers.
+See [src/units/README.md](src/units/README.md) for package details.
+
+## Installation
+
+From the project root:
+
+```bash
+pip install -e .
+```
+
+## Usage
+
+```python
+import numpy as np
+from units import Angle, AngleUnit, Length, LengthUnit
+
+l1 = Length(value=np.array([1.0, 2.0]), unit=LengthUnit.M)
+l2 = Length(value=np.array([50.0, 50.0]), unit=LengthUnit.CM)
+total = l1 + l2
+print(total.meter)  # [1.5, 2.5]
+
+a = Angle(value=np.array([0.0, 90.0]), unit=AngleUnit.DEGREE)
+print(a.radian)  # [0.0, 1.57079633...]
+print(a.sin)     # [0.0, 1.0]
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
