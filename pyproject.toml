@@ -23,6 +23,11 @@ dependencies = [
     "numpy",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
 [project.urls]
 "Homepage" = "https://github.com/ry-yoshida-private/Units"
 "Bug Tracker" = "https://github.com/ry-yoshida-private/Units/issues"
@@ -32,3 +37,7 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 units = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
