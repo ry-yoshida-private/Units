@@ -18,6 +18,10 @@ class Length:
     """
     value: np.ndarray
     unit: LengthUnit
+
+    def __post_init__(self):
+        if np.any(self.value < 0):
+            raise ValueError("Length value must be positive")
     
     @property
     def meter(self) -> np.ndarray:
